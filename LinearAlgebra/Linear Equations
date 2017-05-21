@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+
+
+\newcommand{\per}[1]{\left(#1\right)}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\breakl}{\hspace{1mm}\newline}
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{exmp}{Example}[section]
+
+\begin{document}
+
+\section*{Linear Equations}
+A linear equation is an equation in which every term is either constant or constant multiplied by a single variable. For the sake of simplicity, all values are real-valued. Let us consider probably the simplest example,
+$$ax = b$$
+where $a,b \in \R$ real valued constant and $x$ is a single variable. The general solution for this equation is $x = \frac{b}{a}$. Notice that if $a=0$ this solution is invalid yet the equation is of the form,
+$$0 = b$$
+which can be either always true or always false. The second example is an equation with two variables,
+$$ ax + by = c $$
+Taking $a=2$,$b=-1$,$c=3$ yields the equation $x-y=0$. What are the solutions for this equation? All $x,y$ that satisfy $y=2x-3$. Drawing this points on the $\R^2$ plane yields a linear line. This phenomena is related to the fact that this equations are called linear equations. Is that always the case? Does for every $a,b,c$ the solutions form a linear line? Of course not. In the case either $a=0$ or $b=0$ this reduces to the one variable case. In particular it may be that there exists a single solution, no solution or that the equation is always true.
+
+Let us start complicating things. Instead of one equation consider two equations,
+$$
+\begin{cases}
+a_1x + b_1y = c_1\\
+a_2x + b_2y = c_2\\
+\end{cases}
+$$
+A solution for these equations is a pair $x,y$ that satisfy both equations. For example,
+$$
+\begin{cases}
+3x + 2y = -1 	\\
+x - 2y 	= 5   	\\
+\end{cases}
+$$
+There is a single solution for the above equation $x=1$,$y=-2$. As before we can choose $a_2=0 , b_2=0 , c_2=0$ and reduce to the single equation case. There is another way to reduce to the one equation case by choosing both equations to be the same equation. Here is another example,
+$$
+\begin{cases}
+x - 2y = 1 	\\
+2x - 4y = 2 \\
+\end{cases}
+$$
+The second equation is equal to the first equation multiplied by 2. The observation needed here is that by multiplying both sides of the equation does not change the equation in the sense that the solutions for the equations are the same. For instance, $x=3$,$y=1$ is a solution for the first equation hence a solution for the second equation and $x=0$,$y=0$ is not a solution for the first equation hence not a solution for the second equation. Similarly, adding or subtracting from both sides of the equation does not change the solutions of the equation.
+
+\end{document}
