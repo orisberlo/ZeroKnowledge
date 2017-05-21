@@ -1,0 +1,114 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+
+
+\newcommand{\per}[1]{\left(#1\right)}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\breakl}{\hspace{1mm}\newline}
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{exmp}{Example}[section]
+
+\begin{document}
+
+\section*{Solving System Of Linear Equations}
+Let us start with the following system of equations with four variables,
+$$
+\begin{matrix}
+2x	& +	& 	2y	& +	& 	2z	& + &	3w &= 1	\\
+2x	& + &	3y	& + &	2z	& - &	7w &= 0	\\
+5x	& - &	2y	& + &	3z	& - &	5w &= 1	\\
+3x	& + &	3y	& + &	6z	& + &	3w &= 1	\\
+\end{matrix}
+$$
+What are the solutions for this equation? Is there a solution? If so, is this solution unique? Is there any constructive approach for solving such equations? Is it possible that a system of linear equations will have exactly two solutions? This are the questions we would like to answer. 
+
+The general form of a system of $m$ equations with $n$ variables is,
+$$
+\begin{matrix}
+a_{1,1}x_1	&+	a_{1,2}x_2	&+\ldots	&\ldots+a_{1,n}x_n &= b_1	\\
+a_{2,1}x_1	&+	a_{2,2}x_2	&+\ldots	&\ldots+a_{2,n}x_n &= b_2	\\
+\vdots		&				&			&					&\vdots	\\
+a_{m,1}x_1	&+	a_{m,2}x_2	&+\ldots	&\ldots+a_{m,n}x_n &= b_n	\\
+\end{matrix}
+$$
+where $a_{i,j} \in \R$ is the coefficient of $x_j$ in the $i$'th equation. 
+
+There are several elementary approaches on solving linear equations. All rely on the fact that the following operations does not change the solutions of an equation:
+\begin{enumerate}
+\item 
+Multiplying an equation by non-zero constant does not change the solutions of the equation.
+
+\item
+Adding or subtracting equal amount from both sides does not change the solutions of the equation.
+\end{enumerate}
+
+One way of solving it is first by isolating $x$ from the first equation, 
+$$x=\frac{1}{2}\per{1-2y-2z-3w}$$ 
+and plugging it the second equation, 
+$$\per{1-2y-2z-3w} +3y +3z -7w = 0$$
+obtaining $y=-1-z+10w$. Substuting $x,y$ to the third equation etc. Another way of solving it is by subtracting the first equation from the other equations to eliminate $x$. By subtracting the first equation from the second, $5/2$ times the first equation from the third and $3/2$ times the first equation from the fourth,
+$$
+\begin{matrix}
+2x	& +	& 	2y	& +	& 	2z	& + &	3w &= 1	\\
+0	& + &	(3y-2y)	& + &	(2z-5z)	& - &	(7w+15w/2) &= -5/2	\\
+0	& - &	(2y+5y)	& + &	(3z-5z)	& - &	(5w+15w/2) &= 1-5/2	\\
+0	& + &	(3y-5y)	& + &	(6z-5z)	& + &	(3w-15w/2) &= 1-5/2	\\
+\end{matrix}
+$$
+Rearranging,
+$$
+\begin{matrix}
+2x	& +	& 	2y	& +	& 	2z	& + &	3w &= 1	\\
+0	& + &	y	& - &	3z	& - &	29w/2 &= -5/2	\\
+0	& - &	7y	& - &	2z	& - &	25w/2 &= -3/2	\\
+0	& - &	2y	& + &	z	& - &	9w/2 &= -3/2	\\
+\end{matrix}
+$$
+We now continue with same process starting on $y$ in the second row nullify the $y$'s on the third and fourth row etc. After doing the same for the third and fourth row we expect to get,
+$$
+\begin{matrix}
+2x	& +	& 	2y	& +	& 	2z	& + &	3w &= 1	\\
+0	& + &	y	& - &	3z	& - &	29w/2 &= -5/2	\\
+0	& - &	7y	& - &	2z	& - &	25w/2 &= -3/2	\\
+0	& - &	2y	& + &	z	& - &	9w/2 &= -3/2	\\
+\end{matrix}
+$$
+If nothing goes wrong, we will be left with an equation of the form $a_{4,4}w=b_4$ which we can solve and extract $w$. Moving to the third equation we have equation of the form $a_{3,3}z+a_{3,4}w=b_{3}$ , substitute $w$ and extract $z$ and so on. Of course, this is not always the case... 
+
+\paragraph{Homogeneous Systems}
+A system where $b_i=0$ are all zero is called homogeneous. For every system of linear equations we can think of its corresponding homogeneous system by taking the $b_i$ to be zero. Suppose we have two solutions for a linear system $(x_i)_{i=1}^{n}$,$(y_i)_{i=1}^{n}$. Lets plug in the solution $(x_i-y_i)_{i=1}^{n}$ into the system,
+$$
+\begin{matrix}
+a_{1,1}(x_1-y_1)	&+	a_{1,2}(x_2-y_2)	&+\ldots	&\ldots+a_{1,n}(x_n-y_n)\\
+a_{2,1}(x_1-y_1)	&+	a_{2,2}(x_2-y_2)	&+\ldots	&\ldots+a_{2,n}(x_n-y_n) \\
+\vdots		&				&			&					\\
+a_{m,1}(x_1-y_1)	&+	a_{m,2}(x_2-y_2)	&+\ldots	&\ldots+a_{m,n}(x_n-y_n) \\
+\end{matrix}
+$$
+The m'th row equals to $\sum_{j=1}^{n} a_{i,j}(x_{j}-y_j)$. Recall that $(x_i)_{i=1}^{n}$,$(y_i)_{i=1}^{n}$ are solutions to the original system then $\sum_{j=1}^{n} a_{i,j} x_j = b_i$ and similarly $\sum_{j=1}^{n} a_{i,j} y_j$. Therefore,
+$$\sum_{j=1}^{n} a_{i,j}(x_{j}-y_j) = \sum_{j=1}^{n} a_{i,j} x_j - \sum_{j=1}^{n} a_{i,j} y_j = b_i - b_i = 0$$
+which means that $(x_i-y_i)_{i=1}^{n}$ is a solution for the corresponding homogeneous system. Notice that if we take $x_i=y_i$ then this is no surprise since $x_i=0$ is always a solution for homogeneous system. Now suppose there exists a solution for the non homogeneous system $(y_i^p)_{i=1}^{n}$ and take some other solution $(x_i)_{i=1}^{n}$. Lets write the solution $(x_i)_{i=1}^{n}$ in a quirky way,
+$$ (x_i) = \underbrace{(x_i - y_i^p)}_{\text{Solution for homogeneous system}} + \underbrace{(y_i^p)}_{\text{particular solution}}  $$
+Alternatively, if we take a solution for the homogeneous system and add the particular solution $(y_i^p)_{i=1}^{n}$ we get a solution for the system. The moral of the story is that, "The solutions for a linear system are the solutions for the homogeneous system shifted by some particular solution". Therefore we are left to understand how the solutions for homogeneous system looks like.
+
+
+
+\end{document}
