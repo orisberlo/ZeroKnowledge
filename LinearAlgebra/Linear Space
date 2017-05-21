@@ -1,0 +1,115 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+
+
+\newcommand{\per}[1]{\left(#1\right)}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\breakl}{\hspace{1mm}\newline}
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{exmp}{Example}[section]
+
+\begin{document}
+
+\section*{Linear Spaces}
+Vector space is an algebraic structure which is a collection of objects called vectors. It is best to start with the most common example for vectors. 
+
+What mathematical structure can be imposed on these 2-dimensional arrows starting from a fixed point? First, we can add arrows to obtain another arrow by gluing two vectors together. Second, we can "scale" the arrows. For example we can double the size of some arrow or cut it in half. Third, we can invert the direction of the arrow.
+
+We now think of the arrows in the plane starting from the origin. Each arrow is represented as a pair $(x,y)$
+Addition of arrows is now addition and scaling is addition/scaling in every coordinate. The above example is the two dimensional Euclidean space $\R^2$. Similarly, there is the 3-dimensional Euclidean space $\R^3$ in which the vectors are arrows in the 3-dimensional space and generally the $n$-dimensional Euclidean space $\R^n$.
+
+Another important example is the solutions for a homogeneous system of linear equations (in real values),
+$$Ax = 0$$
+It $(x_i)_{i=1}^{n}$,$(y_i)_{i=1}^{n}$ are two solutions then $(x_i+y_i)_{i=1}^{n}$ is another solution. Also, if we multiply a solution $(x_i)_{i=1}^{n}$ by some constant $\alpha$ is another solution $(\alpha x_i)_{i=1}^{n}$ for the homogeneous equation. We should note that in the non-homogeneous case this is not true since addition of two solutions is not a solution for the non homogeneous system.
+
+
+\paragraph{General Vector Spaces Vs. The Euclidean Space}
+The formal definition strips the Euclidean space from its "unnecessary properties" and considers only the properties that are essential in general theory. Moreover, many of the ideas and concepts in linear algebra are directly motivated from the Euclidean space. It is therefore possible to successfully understand linear algebra while replacing the general object of Vector space with the Euclidean space.
+
+\paragraph{Formal Definition Of Vector Space}
+A vector space over a field $F$ is a collection of vectors $V$ equipped with two operations:
+\begin{enumerate}
+\item 
+Vector Addition: Given two vectors $u,v$ we can add those and get another vector $u+v$.
+
+\item
+Scalar Multiplication (Scaling): Given scalar $\alpha \in F$ and vector $v \in V$ scalar, the scalar multiplication $\alpha v$ is another vector in $V$.
+\end{enumerate}
+
+We require that these operations have nice properties and also mash well together. To qualify as a vector space, the set $V$ and the operations of addition and multiplication must adhere to the following requirements.
+\begin{enumerate}
+\item 
+Closure.
+
+\item
+Commutativity Of Vector Addition.
+
+\item
+Associativity Of Vector Addition.
+
+\item
+Compatibility Of Scalar Multiplication With Field Operation:
+
+\item
+Inverse Element Of Addition:
+
+\item
+Identity Element Of Vector Addition:
+
+\item
+Distributive Laws:
+
+\item
+Identity Element Of Scalar Multiplication:
+
+\end{enumerate}
+
+\paragraph{Examples}
+\begin{enumerate}
+\item 
+
+
+\item 
+
+
+\item 
+
+
+\item 
+
+\end{enumerate}
+
+
+\paragraph{Vector Subspace}
+Let $V$ a vector space over a field $F$. A subset $W \subset V$ is a subspace of $V$ if it is a vector space. To verify that a subset $W$ is a subspace of a vector space is much easier since we already know that the operations of vector addition and scalar multiplication are defined mash well so most of the axioms are redundant. It is enough to show that:
+\begin{enumerate}
+\item 
+Closure (Vector Addition): Addition of two vectors in $W$ is another vector in $W$.
+
+\item
+Closure (Scalar Multiplication): For any scalar $\alpha \in F$ and vector $w \in W$ the vector $\alpha w$ is in $W$.
+
+\item
+The unit vector is in $W$.
+\end{enumerate}
+
+
+\end{document}
