@@ -1,1 +1,4 @@
 
+\newcommand{\kernel}[1]{\text{Ker}(#1)}
+\newcommand{\image}[1]{\text{Im}(#1)}
+\newcommand{\zerovector}{\overline{0}}
