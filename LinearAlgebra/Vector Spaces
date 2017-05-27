@@ -28,21 +28,54 @@
 
 \begin{document}
 
-\section*{Linear Spaces}
+% Credit Wiki
+\section*{Vector Spaces}
 Vector space is an algebraic structure which is a collection of objects called vectors. It is best to start with the most common example for vectors. 
+
+\paragraph{Arrows}
+Consider the set of arrows in the plane. Every arrow is uniquely characterized by two properties: length and direction. 
+% Put picture here
+We may define several natural operations on the arrows:
+\begin{enumerate}
+\item 
+Addition:
+The addition of vectors is done by gluing the two vectors one after the other.
+
+\item
+Scaling:
+Given a real number $\alpha \in \R$ we define the scaling of arrow by $\alpha$ by the vector with the same direction and length multiplied by $\alpha$.
+
+\item
+Inversion:
+Given arrow we define its inverting by taking the vector with the same length in opposite direction. This allows also to define subtraction of arrow by adding the inverted vector and scaling by negative real number $-\alpha$ ($\alpha > 0$) by first inverting the arrow and then scaling by $\alpha$.
+
+\end{enumerate}
+
+% Put picture here
+We also consider the "zero arrow" as the unique arrow with length $0$. Note that the "zero arrow" does not have any direction. Naturally , adding/subtracting the zero arrow does nothing, scaling a vector by $0$ always results in the "zero arrow".
+
+
+
+
+\paragraph{Tuples}
+Consider the set of pairs $\set{(a,b):a,b\in \R}$ of real numbers, e.g $(-1,4)$ , $(0,\sqrt[3]{2})$ , $(\pi,\pi^2)$. Addition/Subtraction of two tuples is defined as point-wise addition/subtraction,
+$$(a,b)\pm (c,d) = (a\pm b,c\pm d)$$
+Scaling by $\alpha \in \R$ is defined,
+$$\alpha \cdot (a,b) = (\alpha \cdot a , \alpha \cdot b)$$
 
 What mathematical structure can be imposed on these 2-dimensional arrows starting from a fixed point? First, we can add arrows to obtain another arrow by gluing two vectors together. Second, we can "scale" the arrows. For example we can double the size of some arrow or cut it in half. Third, we can invert the direction of the arrow.
 
+%% Need to choose formulation
 We now think of the arrows in the plane starting from the origin. Each arrow is represented as a pair $(x,y)$
 Addition of arrows is now addition and scaling is addition/scaling in every coordinate. The above example is the two dimensional Euclidean space $\R^2$. Similarly, there is the 3-dimensional Euclidean space $\R^3$ in which the vectors are arrows in the 3-dimensional space and generally the $n$-dimensional Euclidean space $\R^n$.
 
 Another important example is the solutions for a homogeneous system of linear equations (in real values),
 $$Ax = 0$$
 It $(x_i)_{i=1}^{n}$,$(y_i)_{i=1}^{n}$ are two solutions then $(x_i+y_i)_{i=1}^{n}$ is another solution. Also, if we multiply a solution $(x_i)_{i=1}^{n}$ by some constant $\alpha$ is another solution $(\alpha x_i)_{i=1}^{n}$ for the homogeneous equation. We should note that in the non-homogeneous case this is not true since addition of two solutions is not a solution for the non homogeneous system.
-
+%%%%%%%%%%%%%%%%%%%%
 
 \paragraph{General Vector Spaces Vs. The Euclidean Space}
-The formal definition strips the Euclidean space from its "unnecessary properties" and considers only the properties that are essential in general theory. Moreover, many of the ideas and concepts in linear algebra are directly motivated from the Euclidean space. It is therefore possible to successfully understand linear algebra while replacing the general object of Vector space with the Euclidean space.
+The formal definition of vector spaces strips the Euclidean space from its "unnecessary properties" and considers only the properties that are essential for developing general theory, specifically its geometric structure.  Moreover, many of the ideas and concepts in linear algebra are directly motivated from the Euclidean space. It is therefore possible to successfully understand linear algebra while replacing the general object of Vector space with the Euclidean space.
 
 \paragraph{Formal Definition Of Vector Space}
 A vector space over a field $F$ is a collection of vectors $V$ equipped with two operations:
@@ -85,16 +118,10 @@ Identity Element Of Scalar Multiplication:
 \paragraph{Examples}
 \begin{enumerate}
 \item 
-
-
-\item 
-
+Polynomials of degree $4$.
 
 \item 
-
-
-\item 
-
+Complex tuples $(a+ib,c+id)$.
 \end{enumerate}
 
 
