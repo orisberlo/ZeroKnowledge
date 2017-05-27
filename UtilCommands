@@ -26,3 +26,8 @@
 \newtheorem{defn}{Definition}[section]
 \newtheorem{conj}{Conjecture}[section]
 \newtheorem{exmp}{Example}[section]
+
+\newcommand{\question}[1]{}
+\newcommand{\remark}[1]{}
+\newcommand{\exercise}[1]{}
+
