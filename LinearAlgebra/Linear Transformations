@@ -1,0 +1,145 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+
+
+
+% Utils
+\newcommand{\per}[1]{\left(#1\right)}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\breakl}{\hspace{1mm}\newline}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+
+
+% Linear Algebra
+\newcommand{\kernel}[1]{\text{Ker}(#1)}
+\newcommand{\image}[1]{\text{Im}(#1)}
+\newcommand{\zerovector}{\overline{0}}
+
+
+
+
+% Empty Commands
+\newcommand{\question}[1]{}
+\newcommand{\remark}[1]{}
+\newcommand{\exercise}[1]{}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{exmp}{Example}[section]
+
+
+
+
+% Credit: Non
+% Dependencies: Basis, Linear
+
+\begin{document}
+
+\section*{Linear Transformations}
+A linear transformation is a map between two vector spaces $T:V \rightarrow W$ that satisfies two properties:
+\begin{enumerate}
+\item 
+For any two vectors $u,v \in V$
+$$T(v+u) = T(v)+ T(u)$$
+
+\item 
+For any vector $v \in V$ and scalar $\alpha \in \F$
+$$T(\alpha v) = \alpha T(v)$$
+\end{enumerate}
+The two properties may be united into one property,
+$$T(\alpha v+\beta u) = \alpha T(v)+\beta T(u)$$
+for any $u,v \in V$ and $\alpha,\beta \in \F$. You should notice that this property makes no sense if $V,W$ are not defined over the same field.
+
+\paragraph{Examples}
+Consider the following linear transformations $T:\R^2 \rightarrow \R^2$.
+\begin{enumerate}
+\item
+Identity:
+The linear transformation map every vector to itself.
+
+\item
+Zero map: Every vector is mapped to the zero vector.
+\question{Is the map that map every vector to a fixed non-zero vector linear?}
+
+\item 
+Rotation:
+Rotate every vector by $\alpha$ counter-clockwise, for example, for $\alpha = \pi/4$. Then,
+$$T(1,0) = (1/\sqrt{2},1/\sqrt{2})$$
+Note that indeed $T$ is linear,
+\begin{align*}
+T(3\cdot (1,0)) &= T((3,0)) = (3/\sqrt{2},3/\sqrt{2}) \\
+&= 3 \cdot (1/\sqrt{2},1/\sqrt{2}) = 3\cdot T(1,0)\\
+T((1,0)+(0,1)) &= T((1,1)) = (0,\sqrt{2}) \\
+&= (1/\sqrt{2},1/\sqrt{2})+ (-1/\sqrt{2},1/\sqrt{2}) = T((1,0))+T((0,1))
+\end{align*}
+%% Put picture
+\question{Can you write down a formula for $T(x,y)$?}
+\exercise{Verify that this is a linear map.}
+
+
+\item
+Projection:
+Project the vector on the $x$-axis. In this case it is easy to explicitly write $T$ as $T(x,y)=(x,0)$. Therefore the linearity follows immediately,
+$$T(\alpha (x,y)+\beta (z,w)) = (\alpha x + \beta z , 0) = \alpha T(x,y) + \beta T(z,w) $$
+% Put picture
+\question{Is the transformation $T'(x,y) = (x,1)$ is linear?}
+\exercise{Verify that this is a linear map.}
+
+
+\item
+Scaling:
+Scale any vector by $\alpha$.
+% Put picture
+\exercise{Verify that this is a linear map.}
+\end{enumerate}
+
+\paragraph{Other Examples}
+\begin{enumerate}
+\item 
+Matrix Multiplication: Let $A$ be $m \times n$ matrix. The map $T:\R^n \rightarrow \R^m$ defined by,
+$$T(v) = Av$$
+is a linear map.
+\exercise{Verify that this is a linear map.}
+\question{Can you define other linear maps as matrix multiplication?}
+
+\item
+Composition Of Linear Transformation: Given two linear transformations $T:V \rightarrow U$ and $L:U \rightarrow W$ then $L\circ T:V \rightarrow W$ is also a linear transformation.
+\exercise{Prove that the composition of two linear maps is always a linear map.}
+\end{enumerate}
+
+
+\paragraph{Structure Of Linear Transformations}
+The linearity property is a very special property and clearly not satisfied by an arbitrary map. The first manifestation of this fact is that $T(\zerovector)=\zerovector$ for any linear transformation $T$. To prove this note that by using the linear property of $T$,
+$$T(\zerovector) = T(\zerovector+\zerovector) = T(\zerovector)+T(\zerovector) \Rightarrow T(\zerovector)=\zerovector$$
+Lets move to a more interesting property. Let $T: V \rightarrow W$ linear transformation and two vectors $v$ , $w$. Given $T(v)$ , $T(w)$ what do we learn about other evaluations of $T$? If $T$ is a general map then we learn nothing (other than the values of $T$ on $v,w$) but if $T$ is linear we actually know exactly the evaluation of $T$ on any linear combination $\alpha v + \beta w$. 
+$$T(\alpha v + \beta w) = \alpha T(v) + \beta T(w)$$
+Note that if $v,w$ are basis for $V$ then this already uniquely determines $T$ on the entire vector space. 
+
+\begin{prop}
+Any linear map is uniquely determined by its evaluations on some basis for the vector space.
+\end{prop}
+\begin{proof}
+Let $V,W$ vector spaces, $T:V \rightarrow W$ linear space and $\set{v_1,\ldots,v_n}$ basis for $V$. Take $v \in V$ arbitrary vector then since $\set{v_1,\ldots,v_n}$ there exists $\set{\alpha_1,\ldots,\alpha_n}$ such that,
+$$v = \sum_{i=1}^{n}\alpha_i v_i$$
+Now applying $T$ on $v$ and using the linearity of $T$,
+$$T\per{\sum \alpha_i v_i} = \sum_{i=1}^{n} \alpha_i T(v_i)$$
+Therefore the value of $v$ is determined by the values $\set{T(v_1),\ldots,T(v_n)}$. 
+\end{proof}
+
+In other words, if $T:V \rightarrow W$ is a linear transformation, then if $T':V \rightarrow W$ is another linear transformation such that $T(v_i)=T'(v_i)$ for every $i=1,\ldots,n$ then $T(v)=T'(v)$ for any vector $v \in V$. However, it is plausible to think that such a linear transformation does not exist. Does given vectors $w_1,\ldots,w_n \in W$ there exists a linear transformation $T:V \rightarrow W$ such that $T(v_i)=w_i$ for every $i=1,\ldots,n$? Yes. Indeed, it is natural to define $T(v)$ as follows. Write $v = \sum_{i=1}^{n} \alpha_i v_i$ and set $T(v) = \sum_{i=1}^{n} \alpha_i w_i$. The fact that this is well defined is that the decomposition $v = \sum_{i=1}^{n} \alpha_i v_i$ always exists and unique. It also follows that given independent vectors $v_1,\ldots,v_k \in V$ and some vectors $w_1,\ldots,w_k$ there exists a linear map satisfying $T(v_i) = w_i$. However, this map is not necessarily unique. In fact, it is unique if and only $k = \dim V$.
+
+
+\end{document}
