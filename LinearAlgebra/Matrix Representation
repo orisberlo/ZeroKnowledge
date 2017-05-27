@@ -1,0 +1,107 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm,amssymb,amsfonts,mathrsfs}
+\usepackage{graphicx}
+
+
+\newcommand{\per}[1]{\left(#1\right)}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\breakl}{\hspace{1mm}\newline}
+
+\newcommand{\putpic}[1]{\newline\begin{center}\includegraphics{#1}\end{center}}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\K}{\mathbb{K}}
+
+
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{exmp}{Example}[section]
+
+\newcommand{\question}[1]{}
+\newcommand{\remark}[1]{}
+\newcommand{\exercise}[1]{}
+
+% Credit:
+% Dependencies: Linear transformations
+
+\begin{document}
+
+\section*{Matrix Representation}
+For the purpose of the discussion consider the Euclidean space $\R^2$ and a linear transformation $T:\R^2\rightarrow \R^2$ that rotates each vector $90^{\circ}$ clockwise. We already mentioned that $T$ is determined uniquely by how it operates on given basis. Taking the natural basis $e_1=(1,0)$,$e_1=(0,1)$. Rotating these vectors yields,
+$$T(e_1) = (0,-1) = -e_2 \;\;\;,\;\;\; T(e_2) = (1,0) = $$
+Now let 
+$$v=(\alpha,\beta)=\alpha e_1 + \beta e_1$$
+be a vector then by linearity,
+\begin{align*}
+T(v) &= T(\alpha e_1 + \beta e_1) = \alpha T(e_1)+\beta T(e_2) \\
+&= -\alpha e_2 + \beta e_1\\
+&= 
+(\beta,-\alpha)
+\end{align*}
+
+Before discussing the relation to matrices we emphasize that the above calculations shows how $T$ operates on a vector: "Switch the coordinates in the vector and add minus sign to the second coordinate". A fancy way of writing this operation is,
+$$
+\begin{pmatrix}
+0	&	1\\
+-1	&	0\\
+\end{pmatrix}
+\begin{pmatrix}
+\alpha\\
+\beta\\
+\end{pmatrix}
+=
+\begin{pmatrix}
+\beta\\
+-\alpha\\
+\end{pmatrix}
+$$
+
+This means that whenever we want to rotate a vector in $\R^2$ $90^{\circ}$ clockwise we can simply preform matrix multiplication. Is it just a coincidence due to special properties of this operation or is it generally true for linear transformations? Lets examine the general case. Suppose $T$ is some linear transformation then it is uniquely determined by how it acts in the natural basis,
+$$
+T(e_1) = (a_{1,1},a_{2,1})
+\;\;\;,\;\;\;
+T(e_2) = (a_{1,2},a_{2,2})
+$$
+and let $v=\alpha e_1+\beta e_2$ general vector then,
+$$
+T(v) = (\alpha a_{1,1}+\beta a_{1,2})e_1 + (\alpha a_{2,1}+\beta a_{2,2})
+$$
+which is exactly the matrix multiplication,
+$$
+\begin{pmatrix}
+a_{1,1}	&	a_{1,2}\\
+a_{2,1}	&	a_{2,2}\\
+\end{pmatrix}
+\begin{pmatrix}
+\alpha\\
+\beta\\
+\end{pmatrix}
+=
+\begin{pmatrix}
+\alpha a_{1,1}+\beta a_{1,2}\\
+\alpha a_{2,1}+\beta a_{2,2}\\
+\end{pmatrix}
+$$
+This of course generalizes for the $n$-dimensional Euclidean space. This means that real-valued $n \times n$ matrices are essentially the same objects as linear operators on $\R^n$. 
+\question{What about other basis other than the natural basis?}
+
+
+
+
+\end{document}
