@@ -1,0 +1,15 @@
+\newcommand{\per}[1]{\left(#1\right)}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\breakl}{\hspace{1mm}\newline}
+
+\newcommand{\putpic}[1]{\newline\begin{center}\includegraphics{#1}\end{center}}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\K}{\mathbb{K}}
