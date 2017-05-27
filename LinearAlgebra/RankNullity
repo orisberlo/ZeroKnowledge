@@ -1,0 +1,143 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{graphicx}
+
+
+% Utils
+\newcommand{\per}[1]{\left(#1\right)}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\breakl}{\hspace{1mm}\newline}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\putpic}[1]{\newline\begin{center}\includegraphics{#1}\end{center}}
+
+
+% Linear Algebra
+\newcommand{\kernel}[1]{\text{Ker}(#1)}
+\newcommand{\image}[1]{\text{Im}(#1)}
+\newcommand{\zerovector}{\overline{0}}
+
+
+
+
+
+% Empty Commands
+\newcommand{\question}[1]{}
+\newcommand{\remark}[1]{}
+\newcommand{\exercise}[1]{}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{exmp}{Example}[section]
+
+
+
+
+
+
+
+
+
+% Credit: Non
+% Dependencies: Linear transformations
+
+
+
+\begin{document}
+\section*{Kernel, Image And Rank-Nulity Theorem}
+\begin{defn}
+\emph{Kernel (Linear Transformation)}
+\label{Kernel (Linear Transformation)}
+The Kernel of a linear transformation is the vectors sent to the zero vector,
+$$\kernel{T} = \set{v \in V: T(v)=0}$$
+\end{defn}
+
+
+\begin{defn}
+\emph{Image (Linear Transformation)}
+\label{Image (Linear Transformation)}
+The image of a linear transformation is the set of vectors obtained by the transformation,
+$$\image{T} = \set{T(v): v \in V}$$
+\end{defn}
+
+The kernel and image are not just set of vectors but linear subspaces. The kernel is a subspace of $V$ and the image subspace of $W$.
+\putpic{kernelimage}
+
+\begin{prop}
+Let $V,W$ vector spaces and $T: V \rightarrow W$ then $\kernel{T} \subseteq V$ is a subspace of $V$.
+\end{prop}
+
+\begin{prop}
+Let $V,W$ vector spaces and $T: V \rightarrow W$ then $\image{T} \subseteq W$ is a subspace of $V$.
+\end{prop}
+
+\paragraph{Examples}
+Lets find the kernel and image of the following linear transformations $T: \R^2 \rightarrow \R^2$.
+\begin{enumerate}
+\item
+Identity:
+$\kernel{T}=\set{\zerovector}$, $\image{T}=\R^2$.
+
+\item
+Zero map: $\kernel{T}=\R^2$, $\image{T}=\set{\zerovector}$.
+
+\item 
+Rotation:
+$\kernel{T}=\set{\zerovector}$, $\image{T}=\R^2$.
+
+
+\item
+Projection:
+$\kernel{T}=\set{(0,y):y\in \R}$, $\image{T}=\set{(x,0):x\in \R}$.
+
+
+\item
+Scaling:
+$\kernel{T}=\set{\zerovector}$, $\image{T}=\R^2$.
+\end{enumerate}
+
+These examples imply an interesting relation between the kernel and the image. It seems that as the kernel is bigger, the image gets smaller and vise-versa. 
+
+\begin{thm}
+\emph{(Rank Nullity Theorem)}
+Let $T:V \rightarrow W$ linear transformation then,
+$$\dim V = \dim \text{Ker}T + \dim \text{Im}T$$
+\end{thm}
+
+\begin{proof}
+Let $T:V \rightarrow W$ linear transformation and $\set{u_1,\ldots,u_m}$ basis for $\text{Ker}T$. Complete this basis to a basis for $V$ with the vectors $\set{z_1,\ldots,z_n}$ that is, $\set{u_1,\ldots,u_m,z_1,\ldots,z_n}$ basis for $V$. Under this notation, 
+$$\dim V = n + m $$
+We will show that $\set{Tz_1, Tz_2,\ldots, Tz_n}$ is a basis for $\text{Im}T$ thus showing that $\dim\text{Im}T=n$ completing the proof.
+\begin{enumerate}
+\item 
+$Tz_1, Tz_2,\ldots, Tz_n$ spans $\text{Im}T$ since given $w \in \text{Im}T$ there exists a vector $v \in V$ such that $Tv=w$. Writing $v$ as linear combination of the basis for $V$
+$$v = \sum \alpha_i u_i + \sum \beta_i z_i$$
+Notice that since $u_i \in \text{Ker}T$ then $T(u_i)=0$ for all $i$ so,
+\begin{align*}
+Tv &= T\per{\sum \alpha_i u_i + \sum \beta_i z_i}\\
+&= \sum \alpha_i T(u_i) + \sum \beta_i T(z_i)\\
+&= \sum \beta_i T(z_i)
+\end{align*}
+which means that every $v \in V$ is spanned by $\set{Tz_1,\ldots,Tz_n}$.
+
+\item
+The set $\set{Tz_1,\ldots,Tz_n}$ is linearly independent. Let a linear combination of $\set{Tz_1,\ldots,Tz_n}$ that equals 0
+\begin{align*}
+0 &= \sum \alpha_i T(z_i) = T\per{\sum \alpha_i z_i}
+\end{align*}
+meaning that $\sum \alpha_i z_i \in \text{Ker}T$ which is possible only if $\sum \alpha_i z_i =0$. The $z_i$'s are linearly independent so $\alpha_i = 0$ for all $i$.
+\end{enumerate}
+\end{proof}
+\end{document}
