@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+
+
+\newcommand{\per}[1]{\left(#1\right)}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\breakl}{\hspace{1mm}\newline}
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{exmp}{Example}[section]
+
+\begin{document}
+
+\section*{Dimension Of Linear Spaces}
+Given vectors $\set{v_1,v_2,\ldots,v_k}$ we can ask two questions:
+\begin{enumerate}
+\item 
+Does the vectors $\set{v_1,v_2,\ldots,v_k}$ spans $V$.
+
+\item
+Are these vectors linearly independent.
+\end{enumerate}
+
+We saw that the answer for this questions is independent. It is possible that this set spans $V$ yet linear dependent or vise-versa. It could that the answer for both question is negative or positive.
+
+\begin{defn}
+Vectors $v_1,\ldots,v_k$ that are linearly independent and span $V$ are called a basis for $V$.
+\end{defn}
+
+\paragraph{Examples}
+\begin{enumerate}
+\item 
+The vectors $\set{(1,0,0) , (0,1,0) , (0,0,1)}$ are linearly independent and span $\R^3$ hence basis for $\R^3$.  These basis is often called the standard basis for $\R^3$.
+
+\item
+The vectors $\set{(1,1,1) , (1,1,0)}$ are linearly independent but does not span $\R^3$ (hence not a basis). For example, the vector $(0,0,1)$ is not a linear combination of these vectors.
+
+\item
+The vectors $\set{(1,1,1) , (1,0,1) , (0,1,0)}$ are linearly dependent and does not span $\R^3$. 
+
+\item 
+The vectors $\set{(1,0,0) , (1,1,0) , (1,1,1) , (0,1,0)}$ are linearly dependent and span $\R^3$. 
+\end{enumerate}
+
+Does every vector space have a basis? This is a legitimate question and the answer is affirmative. A constructive constructive approach to find a basis is to start with vectors $v_1,\ldots,v_m$ that span $V$ and then throw out some of them until we get an independent set. If $v_1,\ldots,v_m$ are linearly dependent then there exists a vector which is a linear combination of the rest and thus if we lose this vector we still span $V$. Eventually, we would be left with an independent set which spans $V$. Seemingly, we prove that every linear space has a finite basis which is not true. The problem is that we cannot assume that there exists a finite set of vectors $v_1,\ldots,v_m$ that spans $V$. If this set is not finite then this argument simply does not work. This argument is completely valid if $V$ has a finite spanning set. Such spaces are called "Finite Dimensional Linear Spaces" and we will restrict ourselves only to these spaces. 
+
+Are there different basis for the same vector space? Evidently yes as the above examples show but what about different cardinality? Is there a basis for $\R^3$ with two vectors? What about four vectors? The answer for this question is negative as the next theorem asserts.
+
+\begin{thm}
+Every basis for $V$ has the same cardinality.
+\end{thm}
+
+This astonishing result means that every vector space comes along with a parameter which is the cardinality of its basis. We shall refer to this parameter as the dimension of the vector space and denote it $\dim V$. 
+
+The constructive approach to find basis presented above can be extended in the following manner. Suppose $\set{u_1,\ldots,u_m}$ are linearly independent and $\set{w_1,\ldots,w_n}$ span $V$ then we can add $u_1$ to the $w$'s obtaining,
+$$\set{u_1, w_1,\ldots,w_n}$$
+which is clearly linearly dependent thus we can remove one the $w$'s and still span $V$. Continuing this process we get that $m \leq n$. Notice that we can always avoid removing $u_i$'s since these vectors are linearly independent. This tells us that the size of a linearly independent set is always less or equal the size of a spanning set. Using this argument any two basis for $V$ must have the same size.
+
+\end{document}
