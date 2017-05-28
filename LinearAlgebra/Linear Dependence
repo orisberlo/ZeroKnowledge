@@ -27,6 +27,11 @@
 \newtheorem{conj}{Conjecture}[section]
 \newtheorem{exmp}{Example}[section]
 
+
+% Credit:
+% Dependency: Vector Space, Solving Linear Equations
+
+
 \begin{document}
 
 \section*{Linear Dependency}
