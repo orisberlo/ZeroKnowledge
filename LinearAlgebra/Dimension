@@ -26,6 +26,11 @@
 \newtheorem{conj}{Conjecture}[section]
 \newtheorem{exmp}{Example}[section]
 
+
+
+%Credit: -
+% Dependency: Vector Space, Linear dependency, spanning set.
+
 \begin{document}
 
 \section*{Dimension Of Linear Spaces}
