@@ -1,0 +1,10 @@
+\newcommand{\breakl}{\hspace{1mm}\newline}
+\newcommand{\per}[1]{\left(#1\right)}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\seq}[1]{\{#1_n\}^{\infty}_{n=1}}
+\newcommand{\seqq}[2]{\{#1_{#2}\}^{\infty}_{#2=1}}
+\newcommand{\limn}{\lim_{n \rightarrow \infty}}
+\newcommand{\norm}[2]{||#1||_{#2}}
+\newcommand{\nrm}[2]{||#1||}
+\newcommand{\compx}[1]{X \backslash{#1}}
+\newcommand{\set}[1]{\{{#1}\}}
