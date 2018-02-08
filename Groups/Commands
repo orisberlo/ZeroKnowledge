@@ -1,0 +1,19 @@
+
+\newcommand{\quotient}[2]{{#1}/{#2}}
+\newcommand{\order}[1]{\text{ord}(#1)}
+\newcommand{\conjugacyclass}[1]{\text{Cl}(#1)}
+\newcommand{\groupcentralizer}[1]{\text{C}(#1)}
+\newcommand{\groupcenter}[1]{\text{Z}(#1)}
+\newcommand{\groupindex}[2]{[#1:#2]}
+\newcommand{\commutatorsubgroup}[1]{{#1}'}
+\newcommand{\groupcommutator}[2]{[#1,#2]}
+
+
+## Groups
+\newcommand{\symmetricgroup}[1]{\text{S}_{#1}}
+\newcommand{\cyclicgroup}[1]{\Z_{#1}}
+\newcommand{\alternatinggroup}[1]{\text{A}_{#1}}
+\newcommand{\dihedralgroup}[1]{\text{D}_{#1}}
+\newcommand{\generallineargroup}[2]{\text{GL}{#1,#2}}
+\newcommand{\speciallineargroup}[2]{\text{SL}{#1,#2}}
+\newcommand{\quaterniongroup}{\text{Q}_8}
