@@ -1,0 +1,2 @@
+\newcommand{\idealgenerated}[1]{\left\langle {#1}\right\rangle}
+\newcommand{\ringquotient}[2]{{#1}/{2}}
